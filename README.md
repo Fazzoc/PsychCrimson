@@ -12,6 +12,18 @@ This does things such as
 
 * (go on their GitHub for more info and Documentation: https://github.com/ShadowMario/FNF-PsychEngine)
 
+# The goals
+For this engine, the goal is to implement and change a few things to improve the experience:
+
+- better crash prevention + handler
+- stage editor
+- better caching system (automatic caching rather than the current manual one)
+- improved category select (in week editor you'll be able to select either which songs or weeks you want to have in those categories) 
+- general optimization
+- crimson UI
+- bug fixes (ofc) 
+- chart editor improvements 
+
 # How to Compile?
 
 To be able to build our mod, it requires these dependencies and libraries:
