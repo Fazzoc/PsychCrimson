@@ -1,5 +1,5 @@
 # Psych Crimson - Source
-Psych Crimnson is an Engine ran on a fork of Psych Engine (0.6.3/Legacy). An Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. 
+Psych Crimson is an Engine ran on a fork of Psych Engine (0.6.3/Legacy). An Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. 
 
 Crimson's mission aim is to be an easier alternative to Source code development by providing the essentials only, to have the game running, while also providing quality of life improvements for the user.
 
