@@ -48,7 +48,7 @@ hxcpp [GIt] : haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git
 
 lime 8.0.2 : haxelib install lime 8.0.2
 
-linc_luajit [Git] : haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit.git
+linc_luajit [Git] : haxelib git linc_luajit https://github.com/superpowers04/linc_luajit
 
 openfl 9.2.2 : haxelib install openfl 9.2.2
 
