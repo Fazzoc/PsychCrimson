@@ -8,6 +8,8 @@ This does things such as
 - No mod folder functionality, while manintaning COMPLETE Lua capabilities (as it's source focused)
 - AND MORE TO COME!!!
 
+- Indev builds coming soon!
+
 ![Crimson-Logo (4)](https://github.com/Fazzoc/PsychCrimson/assets/87571200/bd341f11-1921-4d2f-ad8f-b939265b8103)
 
 * (go on their GitHub for more info and Documentation: https://github.com/ShadowMario/FNF-PsychEngine)
