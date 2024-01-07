@@ -4,7 +4,7 @@ Psych Crimson is a **Template Engine** ran on a fork of Psych Engine (0.6.3/Lega
 Crimson's mission aim is to be a simpler alternative to Source code development by providing the essentials only, to have the game running, while also providing quality of life improvements for the user.
 
 This does things such as
-- Vanilla weeks + contents from said weeks (such as code and assets)
+- Remove vanilla weeks + contents from them (such as code and assets)
 - No mod folder functionality, while manintaning COMPLETE Lua capabilities (as it's source focused)
 - AND MORE TO COME!!!
 
