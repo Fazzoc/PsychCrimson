@@ -30,27 +30,26 @@ For this engine, the goal is to implement and change a few things to improve the
 
 To be able to build our mod, it requires these dependencies and libraries:
 
-**Haxe 4.2.5**
+**Haxe 4.2.5 or newer (4.3.2 is recommended or use 4.2.5 if you also compile fnf mods that don't support newer haxe builds)**
 
-Discord RPC [Git] : haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc.git
+lime : haxelib install lime
 
-flixel-addons 3.1.1 : haxelib install flixel-addons 3.1.1
+flixel addons : haxelib install flixel-addons
 
-flixel-tools 1.5.1 : haxelib install flixel-tools 1.5.1
+flixel tools : haxelib install flixel-tools
 
-flixel-ui 2.5.0 : haxelib install flixel-ui 2.5.0
+flixel ui : haxelib install flixel-ui
 
-flixel 5.3.1 : haxelib install flixel 5.3.1
+flixel : haxelib install flixel
 
-hscript 2.5.0 : haxelib install hscript 2.5.0
+hscript : haxelib install hscript
+
+openfl : haxelib install openfl 9.3.1 (newer versions create errors)
+
+hxcpp [Git] : haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git
 
 hxCodec [Git] : haxelib git hxCodec https://github.com/polybiusproxy/hxCodec.git
 
-hxcpp [GIt] : haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git
-
-lime 8.0.2 : haxelib install lime 8.0.2
-
 linc_luajit [Git] : haxelib git linc_luajit https://github.com/superpowers04/linc_luajit
 
-openfl 9.2.2 : haxelib install openfl 9.2.2
-
+Discord RPC [Git] : haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc.git

@@ -32,16 +32,17 @@ jobs:
         run: |
           haxelib setup C:/haxelib
           haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git 4.2.1 > /dev/null --quiet       
-          haxelib install lime 8.0.2
-          haxelib install flixel-addons 3.1.1
-          haxelib install flixel-tools 1.5.1
-          haxelib install flixel-ui 2.5.0
-          haxelib install flixel 5.3.1
-          haxelib install hscript 2.5.0
           haxelib git hxCodec https://github.com/polybiusproxy/hxCodec.git
           haxelib git linc_luajit https://github.com/superpowers04/linc_luajit
-          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc.git
-          haxelib install openfl 9.2.2
+          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc.git 
+          haxelib install openfl 9.3.1 
+          haxelib install lime
+          haxelib install flixel-addons
+          haxelib install flixel-tools
+          haxelib install flixel-ui
+          haxelib install flixel
+          haxelib install hscript
+          
         shell: cmd
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
