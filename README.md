@@ -7,9 +7,8 @@ This does things such as
 - Remove vanilla weeks + contents from them (such as code and assets)
 - No mod folder functionality, while manintaning COMPLETE Lua capabilities (as it's source focused)
 - AND MORE TO COME!!!
-
-- Indev builds coming soon! (Atm you can test the engine via the actions tab)
-![image](https://github.com/Fazzoc/PsychCrimson/assets/87571200/47d84d37-121a-4ee1-9a13-18ef1cbf0782)
+  
+- Indev builds coming soon! (Atm you can test the engine via the ![image](https://github.com/Fazzoc/PsychCrimson/assets/87571200/9abd7b89-3b31-4c5e-ace7-335f123bfca7) tab) 
 
 ![Crimson-Logo (4)](https://github.com/Fazzoc/PsychCrimson/assets/87571200/bd341f11-1921-4d2f-ad8f-b939265b8103)
 
