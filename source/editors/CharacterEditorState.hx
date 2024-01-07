@@ -1,20 +1,12 @@
 package editors;
 
-#if desktop
-import Discord.DiscordClient;
-#end
 import animateatlas.AtlasFrameMaker;
-import flixel.FlxG;
 import flixel.FlxObject;
-import flixel.FlxSprite;
 import flixel.FlxState;
-import flixel.FlxCamera;
 import flixel.ui.FlxBar;
 import flixel.input.keyboard.FlxKey;
 import flixel.addons.display.FlxGridOverlay;
-import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.graphics.FlxGraphic;
-import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.addons.ui.FlxInputText;
 import flixel.addons.ui.FlxUI9SliceSprite;
@@ -38,8 +30,6 @@ import flixel.animation.FlxAnimation;
 #if sys
 import sys.FileSystem;
 #end
-
-using StringTools;
 
 /**
 	*DEBUG MODE
@@ -110,11 +100,13 @@ class CharacterEditorState extends MusicBeatState
 		loadChar(!daAnim.startsWith('bf'), false);
 		
 		healthBarBG = new AttachedSprite('healthBar');
-		healthBarBG.xAdd = -8;
+		healthBarBG.xAdd = -4;
 		healthBarBG.yAdd = -4;
+		healthBarBG.scrollFactor.set();
 		healthBarBG.cameras = [camHUD];
-		healthBar = new FlxBar(healthBarBG.x + 43, healthBarBG.y + 642, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 17), Std.int(healthBarBG.height - 8));
+		healthBar = new FlxBar(healthBarBG.x + 43, healthBarBG.y + 642, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 5), Std.int(healthBarBG.height - 8));
 		healthBar.scrollFactor.set();
+		healthBar.cameras = [camHUD];
 		healthBarBG.sprTracker = healthBar;
 		add(healthBar);
 		add(healthBarBG);
@@ -129,7 +121,7 @@ class CharacterEditorState extends MusicBeatState
 		dumbTexts.cameras = [camHUD];
 
 		textAnim = new FlxText(300, 16);
-		textAnim.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		textAnim.setFormat(Paths.font("Brose.ttf"), 12, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		textAnim.borderSize = 1;
 		textAnim.size = 32;
 		textAnim.scrollFactor.set();
@@ -926,7 +918,23 @@ class CharacterEditorState extends MusicBeatState
 	function reloadCharacterDropDown() {
 		var charsLoaded:Map<String, Bool> = new Map();
 
-		characterList = CoolUtil.coolTextFile(Paths.txt('characterList'));
+		characterList = [];
+		var directories:Array<String> = [Paths.getPreloadPath('characters/')];
+		for (i in 0...directories.length) {
+			var directory:String = directories[i];
+			if(FileSystem.exists(directory)) {
+				for (file in FileSystem.readDirectory(directory)) {
+					var path = haxe.io.Path.join([directory, file]);
+					if (!sys.FileSystem.isDirectory(path) && file.endsWith('.json')) {
+						var charToCheck:String = file.substr(0, file.length - 5);
+						if(!charsLoaded.exists(charToCheck)) {
+							characterList.push(charToCheck);
+							charsLoaded.set(charToCheck, true);
+						}
+					}
+				}
+			}
+		}
 
 		charDropDown.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(characterList, true));
 		charDropDown.selectedLabel = daAnim;
@@ -978,7 +986,7 @@ class CharacterEditorState extends MusicBeatState
 					MusicBeatState.switchState(new PlayState());
 				} else {
 					MusicBeatState.switchState(new editors.MasterEditorMenu());
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
+					FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.menuMusic)));
 				}
 				FlxG.mouse.visible = false;
 				return;

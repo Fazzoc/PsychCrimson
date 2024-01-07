@@ -1,12 +1,9 @@
 package;
 
 import animateatlas.AtlasFrameMaker;
-import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.addons.effects.FlxTrail;
 import flixel.animation.FlxBaseAnimation;
 import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.tweens.FlxTween;
 import flixel.util.FlxSort;
 import Section.SwagSection;
 
@@ -14,8 +11,6 @@ import openfl.utils.AssetType;
 import openfl.utils.Assets;
 import haxe.Json;
 import haxe.format.JsonParser;
-
-using StringTools;
 
 typedef CharacterFile = {
 	var animations:Array<AnimArray>;

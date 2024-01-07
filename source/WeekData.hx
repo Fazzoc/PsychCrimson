@@ -1,12 +1,11 @@
 package;
 
-
+import sys.io.File;
+import sys.FileSystem;
 import lime.utils.Assets;
 import openfl.utils.Assets as OpenFlAssets;
 import haxe.Json;
 import haxe.format.JsonParser;
-
-using StringTools;
 
 typedef WeekFile =
 {
@@ -90,24 +89,20 @@ class WeekData {
 		var directories:Array<String> = [Paths.getPreloadPath()];
 		var originalLength:Int = directories.length;
 
-		var sexList:Array<String> = CoolUtil.coolTextFile(Paths.getPreloadPath('weeks/weekList.txt'));
-		for (i in 0...sexList.length) {
-			for (j in 0...directories.length) {
-				var fileToCheck:String = directories[j] + 'weeks/' + sexList[i] + '.json';
-				if(!weeksLoaded.exists(sexList[i])) {
-					var week:WeekFile = getWeekFile(fileToCheck);
-					if(week != null) {
-						var weekFile:WeekData = new WeekData(week, sexList[i]);
-
-						if(weekFile != null && (isStoryMode == null || (isStoryMode && !weekFile.hideStoryMode) || (!isStoryMode && !weekFile.hideFreeplay))) {
-							weeksLoaded.set(sexList[i], weekFile);
-							weeksList.push(sexList[i]);
-						}
-					}
+	for (i in 0...directories.length) {
+		var directory:String = directories[i] + 'weeks/';
+		if(FileSystem.exists(directory)) {
+			for (file in FileSystem.readDirectory(directory))
+			{
+				var path = haxe.io.Path.join([directory, file]);
+				if (!sys.FileSystem.isDirectory(path) && file.endsWith('.json'))
+				{
+					addWeek(file.substr(0, file.length - 5), path, directories[i], i, originalLength);
 				}
 			}
 		}
 	}
+}
 
 	private static function addWeek(weekToCheck:String, path:String, directory:String, i:Int, originalLength:Int)
 	{

@@ -1,14 +1,8 @@
 package;
 
-import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSubState;
-import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
-import flixel.util.FlxColor;
-import flixel.util.FlxTimer;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
 
 class GameOverSubstate extends MusicBeatSubstate
 {
@@ -99,7 +93,7 @@ class GameOverSubstate extends MusicBeatSubstate
 			else
 				MusicBeatState.switchState(new FreeplayState());
 
-			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.menuMusic)));
 			PlayState.instance.callOnLuas('onGameOverConfirm', [false]);
 		}
 

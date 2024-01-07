@@ -1,9 +1,5 @@
 package;
 
-import flixel.FlxG;
-
-using StringTools;
-
 class Highscore
 {
 	#if (haxe >= "4.0.0")

@@ -1,33 +1,18 @@
 package;
 
-#if desktop
-import Discord.DiscordClient;
-#end
-import flixel.FlxG;
 import flixel.FlxObject;
-import flixel.FlxSprite;
-import flixel.FlxCamera;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
 import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.text.FlxText;
-import flixel.math.FlxMath;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.util.FlxColor;
 import flixel.addons.display.FlxBackdrop;
 import lime.app.Application;
-import Achievements;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 import options.OptionsState;
 
-using StringTools;
-
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '0.6.3'; //This is also used for Discord RPC
+		public static var psychEngineVersion:String = '0.6.3'; //This is also used for Discord RPC
 	public static var curSelected:Int = 2;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -45,6 +30,9 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
+
+		Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
 
 		#if desktop
 		// Updating Discord Rich Presence
@@ -66,14 +54,14 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var bg:FlxBackdrop = new FlxBackdrop(Paths.image('mainmenu/MBG'));
-		bg.scrollFactor.set();	
+bg.scrollFactor.set();	
 		bg.velocity.set(25);
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
 		camFollow = new FlxObject(0, 0, 0, 0);
-		camFollowPos = new FlxObject(0, 0, 585, 0); //use to adjust menu cam
+		camFollowPos = new FlxObject(0, 0, 55, 0); //use to adjust menu cam
 		add(camFollow);
 		add(camFollowPos);
 
@@ -102,38 +90,51 @@ class MainMenuState extends MusicBeatState
 		add(menuItems);
 
 		var scale:Float = 1;
-
+		
 		for (i in 0...optionShit.length)
-		{
-			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
-			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
-			menuItem.scale.x = scale;
-			menuItem.scale.y = scale;
-			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
-			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
-			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
-			menuItem.animation.play('idle');
-			menuItem.ID = i;
-			menuItems.add(menuItem);
-			var scr:Float = (optionShit.length - 4) * 0.135;
-			if(optionShit.length < 6) scr = 0;
-			menuItem.scrollFactor.set(0.8, 0);
-			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
-			menuItem.setGraphicSize(Std.int(menuItem.width * 0.95));
-			menuItem.updateHitbox();
-			menuItem.x = 620*i;
-			menuItem.y = 305;
+			{
+				var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
+				var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
+				menuItem.scale.x = scale;
+				menuItem.scale.y = scale;
+				menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
+				menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
+				menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
+				menuItem.animation.play('idle');
+				menuItem.ID = i;
+				menuItems.add(menuItem);
+				var scr:Float = (optionShit.length - 4) * 0.135;
+				if(optionShit.length < 6) scr = 0;
+				menuItem.scrollFactor.set(0.8, 0);
+				menuItem.antialiasing = ClientPrefs.globalAntialiasing;
+				menuItem.setGraphicSize(Std.int(menuItem.width * 0.95));
+				menuItem.updateHitbox();
+				menuItem.screenCenter(Y);
+	
+				switch (i)
+			{
+				case 0: //awards
+					menuItem.x = -800;
+				case 1: //freeplay
+					menuItem.x = -270;
+				case 2: //story_mode
+					menuItem.x = 355;
+				case 3: //options
+					menuItem.x = 1090;
+				case 4: //credits
+					menuItem.x = 1680;
+			}
 		}
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Psych Crimson " + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.setFormat("Brose Regular", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 	  /*var versionShit:FlxText = new FlxText(930, FlxG.height - 24, 0, "Mod Name " + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.setFormat("Brose Regular", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);*/
 
 		changeItem();
@@ -239,7 +240,7 @@ class MainMenuState extends MusicBeatState
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
 										OptionsState.onPlayState = false;
-								}
+										}
 							});
 						}
 					});

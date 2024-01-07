@@ -3,13 +3,6 @@ package;
 import Sys.sleep;
 import discord_rpc.DiscordRpc;
 
-#if LUA_ALLOWED
-import llua.Lua;
-import llua.State;
-#end
-
-using StringTools;
-
 class DiscordClient
 {
 	public static var isInitialized:Bool = false;
@@ -44,7 +37,7 @@ class DiscordClient
 			details: "Loading...",
 			state: null,
 			largeImageKey: 'icon',
-			largeImageText: "Fazzoc Funk Mix: Void"
+			largeImageText: "Psych Crimson"
 		});
 	}
 

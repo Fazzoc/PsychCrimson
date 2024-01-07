@@ -1,9 +1,6 @@
 package;
 
 import flixel.graphics.FlxGraphic;
-import flixel.FlxSprite;
-
-using StringTools;
 
 class HealthIcon extends FlxSprite
 {

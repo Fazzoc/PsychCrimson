@@ -1,7 +1,6 @@
 package;
 
 import flixel.graphics.FlxGraphic;
-import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxState;
 import openfl.Assets;
@@ -11,10 +10,6 @@ import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.display.StageScaleMode;
 import lime.app.Application;
-
-#if desktop
-import Discord.DiscordClient;
-#end
 
 //crash handler stuff
 #if CRASH_HANDLER
@@ -26,7 +21,13 @@ import sys.io.File;
 import sys.io.Process;
 #end
 
-using StringTools;
+#if linux
+import lime.graphics.Image;
+@:cppInclude('./gamemode_client.h')
+@:cppFileCode('
+		#define GAMEMODE_AUTO
+')
+#end
 
 class Main extends Sprite
 {
@@ -40,7 +41,7 @@ class Main extends Sprite
 		startFullscreen: false // if the game should start at fullscreen mode
 	};
 	public static var fpsVar:FPS;
-
+	
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
 	public static function main():Void
@@ -92,13 +93,18 @@ class Main extends Sprite
 		#if !mobile
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
-		Lib.current.stage.align = "tl";
+		Lib.current.stage.align = "tl";	
 		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
 		#end
 		
+		#if linux
+		var icon = Image.fromFile("icon.png");
+		Lib.current.stage.window.setIcon(icon);
+		#end
+
 		#if CRASH_HANDLER
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
 		#end

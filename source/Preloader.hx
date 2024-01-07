@@ -1,19 +1,11 @@
 package;
 
-#if windows
-import Discord.DiscordClient;
-#end
-import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.transition.TransitionData;
 import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.math.FlxPoint;
-import flixel.util.FlxTimer;
-import flixel.text.FlxText;
-import flixel.sound.FlxSound;
 import lime.app.Application;
 import flixel.ui.FlxBar;
 import haxe.Json;
@@ -22,13 +14,9 @@ import options.GraphicsSettingsSubState;
 import openfl.display.BitmapData;
 import openfl.utils.Assets;
 import haxe.Exception; //funi
-import flixel.tweens.FlxEase;
-import flixel.util.FlxColor;
-import flixel.tweens.FlxTween;
 import flixel.FlxState;
 import flixel.addons.ui.FlxUIState;
 import flixel.math.FlxRect;
-import flixel.util.FlxTimer;
 import flixel.addons.transition.FlxTransitionableState;
 #if cpp
 import sys.FileSystem;
@@ -63,10 +51,10 @@ class Preloader extends MusicBeatState {
         
         //Preload UI stuff
         'healthBar' => PreloadType.image,
-
+        
         //Icons cause why not?
         'icons/icon-bf' => PreloadType.imagealt,
-
+        
         //Preload countdown assets for better loading time
         'go' => PreloadType.image, 
         'ready' => PreloadType.image, 
@@ -74,21 +62,21 @@ class Preloader extends MusicBeatState {
 
         //Preload the entire character roster (Sorry, this doesn't mean no more lag spikes when hardcoded, but it does work if the character change events are in the chart editor)
         'BOYFRIEND' => PreloadType.atlas,
-        
+                
         //Menu stuff (atlas: XML files, imagealt: images from the preload folder)
         'MMBar' => PreloadType.imagealt,
         'MMSelectedGlow' => PreloadType.imagealt,
         'MBG' => PreloadType.imagealt,
-
+        
         //songs
-        'Test' => PreloadType.music, 
-
+        'Test' => PreloadType.music,
+        
     ];
     var maxCount:Int;
 
     public static var preloadedAssets:Map<String, FlxGraphic>;
     //var backgroundGroup:FlxTypedGroup<FlxSprite>;
-
+    
     public var newClass:Any;
 
     // Made this in case you make some logics of loading state when switching menus like MusicBeatState.switchState(new Preloading(true, new FreeplayState()));
@@ -146,7 +134,7 @@ class Preloader extends MusicBeatState {
             }
 
         loadText = new FlxText(20, FlxG.height - (32 + 60), 0, 'Loading...', 32);
-        loadText.setFormat(Paths.font("vcr.ttf"), 50, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        loadText.setFormat(Paths.font("Brose.ttf"), 50, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         loadText.alpha = 0;
         add(loadText); 
 

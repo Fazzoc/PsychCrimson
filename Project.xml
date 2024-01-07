@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="FNF: Psych Crimson" file="FNF" packageName="com.fazzoc.crimson" package="com.fazzoc.crimson" main="Main" version=" " company="FazzocInteractive" />
+	<app title="FNF: Psych Crimson" file="FNF" packageName="com.fazzocint.crimson" package="com.fazzocint.crimson" main="Main" version=" " company="FazzocInteractive" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -141,5 +141,5 @@
 	<icon path="icons/icon16.png" size='16'/>
 	<icon path="icons/icon32.png" size='32'/>
 	<icon path="icons/icon64.png" size='64'/>
-	<icon path="icons/iconOG.png" />
+	<assets path='icons/iconOG.png' rename='icon.png' if="linux" />
 </project>

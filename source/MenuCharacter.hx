@@ -1,6 +1,5 @@
 package;
 
-import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 import openfl.utils.Assets;
 import haxe.Json;
