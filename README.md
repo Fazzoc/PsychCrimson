@@ -1,14 +1,14 @@
 # Psych Crimson - Source
-Psych Crimson is a **Template Engine** ran on a fork of Psych Engine (0.6.3/Legacy). An Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. 
+Psych Crimson is a **Template Engine** based on a fork of Psych Engine (0.6.3/Legacy). An Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. 
 
-Crimson's mission aim is to be an easier alternative to Source code development by providing the essentials only, to have the game running, while also providing quality of life improvements for the user.
+Crimson's mission aim is to be a simpler alternative to Source code development by providing the essentials only, to have the game running, while also providing quality of life improvements for the user.
 
 This does things such as
-- Vanilla weeks + contents from said weeks (such as code and assets)
+- Remove vanilla weeks + contents from them (such as code and assets)
 - No mod folder functionality, while manintaning COMPLETE Lua capabilities (as it's source focused)
 - AND MORE TO COME!!!
-
-- Indev builds coming soon!
+  
+- Indev builds coming soon! (Atm you can test the engine via the ![image](https://github.com/Fazzoc/PsychCrimson/assets/87571200/9abd7b89-3b31-4c5e-ace7-335f123bfca7) tab) 
 
 ![Crimson-Logo (4)](https://github.com/Fazzoc/PsychCrimson/assets/87571200/bd341f11-1921-4d2f-ad8f-b939265b8103)
 
