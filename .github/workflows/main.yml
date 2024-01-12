@@ -36,7 +36,7 @@ jobs:
           sudo apt-get install libvlccore-dev
           haxelib setup ~/haxelib
           haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git > /dev/null
-          haxelib git hxCodec https://github.com/polybiusproxy/hxCodec.git
+          haxelib git hxCodec https://github.com/polybiusproxy/hxCodec
           haxelib git linc_luajit https://github.com/superpowers04/linc_luajit
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc 
           haxelib install openfl 9.3.1 
@@ -72,10 +72,10 @@ jobs:
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
-          haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git 4.3.2 > /dev/null --quiet       
-          haxelib git hxCodec https://github.com/polybiusproxy/hxCodec.git
+          haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git > /dev/null --quiet       
+          haxelib git hxCodec https://github.com/polybiusproxy/hxCodec
           haxelib git linc_luajit https://github.com/superpowers04/linc_luajit
-          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc.git 
+          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc 
           haxelib install openfl 9.3.1 
           haxelib install lime
           haxelib install flixel-addons
