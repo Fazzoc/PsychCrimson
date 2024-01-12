@@ -46,10 +46,10 @@ hscript : haxelib install hscript
 
 openfl : haxelib install openfl 9.3.1 (newer versions create errors)
 
-hxcpp [Git] : haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git
+hxcpp [Git] : haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp
 
-hxCodec [Git] : haxelib git hxCodec https://github.com/polybiusproxy/hxCodec.git
+hxCodec [Git] : haxelib git hxCodec https://github.com/polybiusproxy/hxCodec
 
 linc_luajit [Git] : haxelib git linc_luajit https://github.com/superpowers04/linc_luajit
 
-Discord RPC [Git] : haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc.git
+Discord RPC [Git] : haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
